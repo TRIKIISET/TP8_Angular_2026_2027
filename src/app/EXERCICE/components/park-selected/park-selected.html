@@ -1,0 +1,21 @@
+@if(park()){
+    <div class="card mt-3 ">
+    <h4 class="card-header text-center">
+        {{park()?.name |uppercase}}
+    </h4>
+    <div class="card-body">
+        <ul>
+            <li>
+                Date d'ouverture: {{park()?.openingDate |date:'dd MMMM yyyy'}}
+            </li>
+            <li>
+                Horaire : {{park()?.hours}}
+            </li>
+        </ul>
+
+    </div>
+    <div class="card-footer text-center">
+        <button class="btn btn-primary" routerLink="/parks">Retour</button>
+    </div>
+</div>
+}

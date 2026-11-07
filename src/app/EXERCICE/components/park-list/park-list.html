@@ -1,6 +1,17 @@
 <h1>Liste des parcs d'attraction</h1>
 <ul class="list-group">
     @for(p of parks(); track p.id){
+    <li class="list-group-item">
+        <app-park-item [park]="p"></app-park-item>
+        
+
+    </li>
+    }@empty {
+    <li>Aucun parc</li>
+    }
+</ul>
+<!-- <ul class="list-group">
+    @for(p of parks(); track p.id){
     <li class="list-group-item d-flex justify-content-between align-items-center">
         <div>
             <img [src]="p.photo" [alt]="p.photo">
@@ -24,7 +35,5 @@
     </li>
     }@empty {
     <li>Aucun parc</li>
-
     }
-
-</ul>
+</ul> -->

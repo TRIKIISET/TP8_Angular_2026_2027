@@ -17,9 +17,9 @@ export class ParkList implements OnInit {
   ngOnInit(): void {
     this.parkService.getParks().subscribe();
   }
-  onUpdateLikes(p: Park) {
-    let park = { ...p, nbLikes: p.nbLikes + 1 }
-    this.parkService.updatePark(park).subscribe()
+  onUpdateLikes(p:Park){
+    p.nbLikes ++;
+    this.parkService.updatePark(p).subscribe()
   }
   onDeletePark(id: string) {
     this.parkService.deletePark(id).subscribe()

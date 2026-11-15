@@ -1,8 +1,10 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ProductService } from '../../services/product-service';
+import { Product } from '../../models/product';
+import { JsonPipe } from '@angular/common';
 
 @Component({
-  imports: [],
+  imports: [JsonPipe],
   selector: 'app-product-list',
   styleUrl: './product-list.css',
   templateUrl: './product-list.html',
@@ -16,7 +18,24 @@ export class ProductList implements OnInit{
   }
 
   onAddProduct(){
-    let newProduct = { name:"crayon", price:2.3}
+    let newProduct = { id:"xyzDSI", name:"crayon", price:2.3}
     this.productService.addProduct(newProduct).subscribe();    
   }
+    onDeleteProduct(id:string){
+    this.productService.deleteProduct(id).subscribe(
+      ()=>this.foundProduct.set(undefined)
+    );
+  }
+  onUpdateProduct(p:Product){
+    let product = {...p, price: p.price*0.9} 
+    this.productService.updateProduct(product).subscribe()
+  }
+  foundProduct=signal<Product|undefined>(undefined)
+
+  onFindProduct(id:string){
+    this.productService.getProductById(id).subscribe(
+      foundProduct => this.foundProduct.set(foundProduct)
+    )
+  }
+
 }

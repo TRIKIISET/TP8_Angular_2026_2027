@@ -3,7 +3,17 @@
     @for (p of products(); track p.id) {
     <li>
         Id: {{p.id}} -- Nom: {{p.name}} -- Prix: {{p.price}} DT
+        <button (click)="onDeleteProduct(p.id)">Supprimer</button>
+        <button (click)="onUpdateProduct(p)">Modifier</button>
     </li>
     }
 </ul>
 <button (click)="onAddProduct()">Ajouter</button>
+
+<div>
+    <input type="text" #txt>
+    <button (click)="onFindProduct(txt.value)">Rechercher</button>
+    @if(foundProduct()){
+    {{foundProduct()|json}}
+    }
+</div>

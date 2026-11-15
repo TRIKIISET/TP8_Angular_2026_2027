@@ -1,19 +1,10 @@
 {
   "parks": [
     {
-      "id": "gWAL8FxDFFw",
-      "name": "Dream Park",
-      "photo": "parks/dream.jpg",
-      "nbLikes": 581,
-      "openingDate": "2021-09-09",
-      "hours": "8h00 - 18h00",
-      "location": "Tabarka"
-    },
-    {
       "id": "yKLG8FxABCe",
       "name": "Hannibal Park",
       "photo": "parks/hannibal.jpg",
-      "nbLikes": 8608,
+      "nbLikes": 8610,
       "openingDate": "2020-12-17",
       "hours": "10h00 - 22h00",
       "location": "Sfax"
@@ -22,7 +13,7 @@
       "id": "aABCDEFgHij",
       "name": "Alyssa Park",
       "photo": "parks/alyssa.jpg",
-      "nbLikes": 425,
+      "nbLikes": 431,
       "openingDate": "2023-08-15",
       "hours": "8h00 - 23h00",
       "location": "Tunis"

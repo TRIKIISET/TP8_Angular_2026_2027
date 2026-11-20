@@ -21,21 +21,5 @@ export class ProductList implements OnInit{
     let newProduct = { id:"xyzDSI", name:"crayon", price:2.3}
     this.productService.addProduct(newProduct).subscribe();    
   }
-    onDeleteProduct(id:string){
-    this.productService.deleteProduct(id).subscribe(
-      ()=>this.foundProduct.set(undefined)
-    );
-  }
-  onUpdateProduct(p:Product){
-    let product = {...p, price: p.price*0.9} 
-    this.productService.updateProduct(product).subscribe()
-  }
-  foundProduct=signal<Product|undefined>(undefined)
-
-  onFindProduct(id:string){
-    this.productService.getProductById(id).subscribe(
-      foundProduct => this.foundProduct.set(foundProduct)
-    )
-  }
 
 }

@@ -21,24 +21,4 @@ export class ProductService {
         )
     }
 
-    updateProduct(newProduct: Product): Observable<Product> {
-        return this._http.put<Product>(`${URL}/${newProduct.id}`, newProduct)
-            .pipe(
-                tap(updatedProduct =>
-                    this._products.update(allProducts => allProducts.map(p =>
-                        (p.id == newProduct.id) ? updatedProduct : p
-                    ))
-                )
-            )
-    }
-
-    deleteProduct(id: string): Observable<void> {
-        return this._http.delete<void>(`${URL}/${id}`).pipe(
-            tap(() => this._products.update(allProducts => allProducts.filter(p => p.id != id)))
-        )
-    }
-    getProductById(id: string): Observable<Product> {
-        return this._http.get<Product>(`${URL}/${id}`);
-    }
-
 }
